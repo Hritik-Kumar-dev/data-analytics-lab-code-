@@ -11,8 +11,11 @@ kmeans_result <- kmeans(iris_features, centers=3, nstart=20)
 
 print(kmeans_result)
 
-install.packages("cluster")
-library(cluster)
+if (!require("cluster", quietly=TRUE)) {
+  dir.create(Sys.getenv("R_LIBS_USER"), showWarnings=FALSE, recursive=TRUE)
+  install.packages("cluster", lib=Sys.getenv("R_LIBS_USER"))
+  library(cluster)
+}
 
 clusplot(
 iris_features,

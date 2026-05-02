@@ -12,8 +12,11 @@ txt_data <- read.table("output.txt", header=TRUE)
 write.csv(data, "output.csv", row.names=FALSE)
 csv_data <- read.csv("output.csv")
 
-install.packages("writexl")
-library(writexl)
+if (!require("writexl", quietly=TRUE)) {
+  dir.create(Sys.getenv("R_LIBS_USER"), showWarnings=FALSE, recursive=TRUE)
+  install.packages("writexl", lib=Sys.getenv("R_LIBS_USER"))
+  library(writexl)
+}
 
 write_xlsx(data, "output.xlsx")
 
