@@ -1,16 +1,17 @@
 # Experiment 3
 # Matrix Operations in R
 
-rows <- as.integer(readline(prompt="Enter rows: "))
-cols <- as.integer(readline(prompt="Enter columns: "))
+# Sample matrices (3x3)
+rows <- 3
+cols <- 3
 
-cat("Enter elements of Matrix A:\n")
-vecA <- scan(n=rows*cols)
-A <- matrix(vecA, nrow=rows, ncol=cols, byrow=TRUE)
+cat("Matrix A (sample data):\n")
+A <- matrix(c(1, 2, 0, 3, 4, 0, 0, 0, 1), nrow=rows, ncol=cols, byrow=TRUE)
+print(A)
 
-cat("Enter elements of Matrix B:\n")
-vecB <- scan(n=rows*cols)
-B <- matrix(vecB, nrow=rows, ncol=cols, byrow=TRUE)
+cat("Matrix B (sample data):\n")
+B <- matrix(c(5, 0, 1, 0, 3, 2, 1, 2, 1), nrow=rows, ncol=cols, byrow=TRUE)
+print(B)
 
 cat("Matrix A:\n")
 print(A)
